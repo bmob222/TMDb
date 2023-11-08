@@ -110,7 +110,7 @@ extension URL {
             return self
         }
 
-        return appendingQueryItem(name: QueryItemName.language, value: withNetworks)
+        return appendingQueryItem(name: QueryItemName.withNetworks, value: withNetworks)
     }
 
 
