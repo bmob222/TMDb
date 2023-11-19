@@ -3,6 +3,7 @@ import Foundation
 enum TVSeriesEndpoint {
 
     case details(tvSeriesID: TVSeries.ID)
+    case external_ids(tvSeriesID: TVSeries.ID)
     case credits(tvSeriesID: TVSeries.ID)
     case reviews(tvSeriesID: TVSeries.ID, page: Int? = nil)
     case images(tvSeriesID: TVSeries.ID, languageCode: String?)
@@ -62,6 +63,12 @@ extension TVSeriesEndpoint: Endpoint {
             return Self.basePath
                 .appendingPathComponent("popular")
                 .appendingPage(page)
+            
+        case .external_ids(tvSeriesID: let tvSeriesID):
+            return Self.basePath
+                .appendingPathComponent(tvSeriesID)
+                .appendingPathComponent("external_ids")
+
         }
     }
 

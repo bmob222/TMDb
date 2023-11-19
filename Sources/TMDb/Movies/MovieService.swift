@@ -46,6 +46,19 @@ public final class MovieService {
 
         return movie
     }
+    
+    
+    public func externalIDs(forMovie id: Movie.ID) async throws -> ExternalIDs {
+        let externalIDs: ExternalIDs
+        do {
+            externalIDs = try await apiClient.get(endpoint: MoviesEndpoint.external_ids(movieID: id))
+        } catch let error {
+            throw TMDbError(error: error)
+        }
+
+        return externalIDs
+    }
+
 
     ///
     /// Returns the cast and crew of a movie.

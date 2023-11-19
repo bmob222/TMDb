@@ -3,6 +3,7 @@ import Foundation
 enum MoviesEndpoint {
 
     case details(movieID: Movie.ID)
+    case external_ids(movieID: Movie.ID)
     case credits(movieID: Movie.ID)
     case reviews(movieID: Movie.ID, page: Int? = nil)
     case images(movieID: Movie.ID, languageCode: String?)
@@ -80,6 +81,12 @@ extension MoviesEndpoint: Endpoint {
             return Self.basePath
                 .appendingPathComponent("upcoming")
                 .appendingPage(page)
+            
+        case .external_ids(movieID: let movieID):
+            return Self.basePath
+                .appendingPathComponent(movieID)
+                .appendingPathComponent("external_ids")
+
         }
     }
 
