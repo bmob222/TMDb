@@ -26,7 +26,7 @@ public struct ExternalIDs: Identifiable, Codable, Equatable, Hashable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        case imdbId = "imdb_id"
+        case imdbId = "imdbId"
     }
     
     
