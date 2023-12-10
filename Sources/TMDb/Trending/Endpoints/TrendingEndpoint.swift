@@ -19,18 +19,21 @@ extension TrendingEndpoint: Endpoint {
                 .appendingPathComponent("movie")
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
+                .appendingQueryItem(name: "include_adult", value: "false")
 
         case .tvSeries(let timeWindow, let page):
             return Self.basePath
                 .appendingPathComponent("tv")
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
+                .appendingQueryItem(name: "include_adult", value: "false")
 
         case .people(let timeWindow, let page):
             return Self.basePath
                 .appendingPathComponent("person")
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
+                .appendingQueryItem(name: "include_adult", value: "false")
         }
     }
 

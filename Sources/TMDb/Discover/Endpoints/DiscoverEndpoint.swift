@@ -20,6 +20,7 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithPeople(people)
                 .appendingPage(page)
                 .appendingWithNetworks(with_networks)
+                .appendingQueryItem(name: "include_adult", value: "false")
 
         case .tvSeries(let sortedBy, let page, let with_networks):
             return Self.basePath
@@ -27,6 +28,7 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingSortBy(sortedBy)
                 .appendingPage(page)
                 .appendingWithNetworks(with_networks)
+                .appendingQueryItem(name: "include_adult", value: "false")
         }
     }
 
