@@ -63,6 +63,8 @@ extension TVSeriesEndpoint: Endpoint {
             return Self.basePath
                 .appendingPathComponent("popular")
                 .appendingPage(page)
+                .appendingQueryItem(name: "include_adult", value: "false")
+
             
         case .external_ids(tvSeriesID: let tvSeriesID):
             return Self.basePath

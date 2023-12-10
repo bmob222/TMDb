@@ -71,6 +71,8 @@ extension MoviesEndpoint: Endpoint {
             return Self.basePath
                 .appendingPathComponent("popular")
                 .appendingPage(page)
+                .appendingQueryItem(name: "include_adult", value: "false")
+
 
         case .topRated(let page):
             return Self.basePath
