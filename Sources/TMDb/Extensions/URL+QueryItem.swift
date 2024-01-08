@@ -28,6 +28,8 @@ extension URL {
         static let firstAirDateYear = "first_air_date_year"
         static let withPeople = "with_people"
         static let withNetworks = "with_networks"
+        static let withWatchProviders = "with_watch_providers"
+        static let watchRegion = "watch_region"
     }
 
     func appendingAPIKey(_ apiKey: String) -> Self {
@@ -112,6 +114,16 @@ extension URL {
 
         return appendingQueryItem(name: QueryItemName.withNetworks, value: withNetworks)
     }
+
+    func appendingWithWatchProviders(_ withWatchProviders: Int?) -> Self {
+        guard let withWatchProviders else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.withWatchProviders, value: withWatchProviders)
+    }
+    
+    
 
 
 }

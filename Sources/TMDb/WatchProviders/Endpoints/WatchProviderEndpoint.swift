@@ -32,7 +32,7 @@ extension WatchProviderEndpoint: Endpoint {
 
 }
 
-private extension URL {
+extension URL {
 
     private enum QueryItemName {
         static let watchRegion = "watch_region"
