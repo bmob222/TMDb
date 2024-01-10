@@ -3,7 +3,7 @@ import Foundation
 ///
 /// A model representing a TV episode.
 ///
-public struct TVEpisode: Identifiable, Codable, Equatable, Hashable {
+public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHashableEquatable {
 
     ///
     /// TV episode identifier.
@@ -50,7 +50,7 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable {
     ///
     /// TV episode crew.
     ///
-    public let crew: [CrewMember]?
+    @FailableDecodableArray public var crew: [CrewMember]
 
     ///
     /// TV episode guest cast members.
@@ -93,7 +93,7 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable {
         airDate: Date? = nil,
         productionCode: String? = nil,
         stillPath: URL? = nil,
-        crew: [CrewMember]? = nil,
+        crew: [CrewMember] = [],
         guestStars: [CastMember]? = nil,
         voteAverage: Double? = nil,
         voteCount: Int? = nil

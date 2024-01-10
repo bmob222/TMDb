@@ -3,7 +3,7 @@ import Foundation
 ///
 /// A model representing a crew member..
 ///
-public struct CrewMember: Identifiable, Codable, Equatable, Hashable {
+public struct CrewMember: Identifiable, Codable, Equatable, Hashable, CodableHashableEquatable {
 
     ///
     /// Crew member's identifier.

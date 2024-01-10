@@ -12,7 +12,7 @@ extension TVEpisode {
         airDate: Date? = .random,
         productionCode: String? = nil,
         stillPath: URL? = nil,
-        crew: [CrewMember]? = nil,
+        crew: [CrewMember] = [],
         guestStars: [CastMember]? = nil,
         voteAverage: Double? = nil,
         voteCount: Int? = nil
