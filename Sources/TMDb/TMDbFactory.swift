@@ -4,12 +4,12 @@ import FoundationNetworking
 #endif
 
 final class TMDbFactory {
-
     private init() { }
 
 }
 
 extension TMDbFactory {
+    public static var locale: Locale?
 
     static var apiClient: some APIClient {
         TMDbAPIClient(
@@ -22,7 +22,7 @@ extension TMDbFactory {
     }
 
     static func localeProvider() -> Locale {
-        .current
+        locale ?? .current
     }
 
 }
