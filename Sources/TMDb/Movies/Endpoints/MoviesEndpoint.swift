@@ -28,6 +28,8 @@ extension MoviesEndpoint: Endpoint {
         case .details(let movieID):
             return Self.basePath
                 .appendingPathComponent(movieID)
+                .appendingQueryItem(name: "append_to_response", value: "videos,credits,images,release_dates")
+                .appendingQueryItem(name: "include_image_language", value: "en")
 
         case .credits(let movieID):
             return Self.basePath

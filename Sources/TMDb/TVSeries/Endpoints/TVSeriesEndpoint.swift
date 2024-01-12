@@ -25,6 +25,8 @@ extension TVSeriesEndpoint: Endpoint {
         case .details(let tvSeriesID):
             return Self.basePath
                 .appendingPathComponent(tvSeriesID)
+                .appendingQueryItem(name: "append_to_response", value: "videos,credits,images,content_ratings")
+                .appendingQueryItem(name: "include_image_language", value: "en")
 
         case .credits(let tvSeriesID):
             return Self.basePath
