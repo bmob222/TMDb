@@ -12,7 +12,7 @@ enum TVSeriesEndpoint {
     case similar(tvSeriesID: TVSeries.ID, page: Int? = nil)
     case popular(page: Int? = nil)
     case watch(tvSeriesID: TVSeries.ID)
-    case externalIDs(tvSeriesID: TVSeries.ID)
+    case externalIDs(tvSeriesID: TVSeries.ID, seasonNumber: Int?, epsoideNumber: Int?)
 
 }
 
@@ -78,10 +78,20 @@ extension TVSeriesEndpoint: Endpoint {
                 .appendingPathComponent(tvSeriesID)
                 .appendingPathComponent("watch/providers")
 
-        case .externalIDs(let tvSeriesID):
-            return Self.basePath
+        case .externalIDs(let tvSeriesID,let seasonNumber, let epsoideNumber):
+            let url = Self.basePath
                 .appendingPathComponent(tvSeriesID)
+            if let seasonNumber, let epsoideNumber {
+             return url
+                .appendingPathComponent("season")
+                .appendingPathComponent(seasonNumber)
+                .appendingPathComponent("episode")
+                .appendingPathComponent(epsoideNumber)
                 .appendingPathComponent("external_ids")
+            } else {
+                return url.appendingPathComponent("external_ids")
+            }
+
         }
     }
 

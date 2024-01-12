@@ -114,7 +114,7 @@ final class TVSeriesEndpointTests: XCTestCase {
     func testMovieExternalIDsEndpointReturnsURL() throws {
         let expectedURL = try XCTUnwrap(URL(string: "/tv/1/external_ids"))
 
-        let url = TVSeriesEndpoint.externalIDs(tvSeriesID: 1).path
+        let url = TVSeriesEndpoint.externalIDs(tvSeriesID: 1,seasonNumber: nil,epsoideNumber: nil).path
 
         XCTAssertEqual(url, expectedURL)
     }
