@@ -129,6 +129,14 @@ public struct Movie: Identifiable, Codable, Equatable, Hashable {
     ///
     public let isAdultOnly: Bool?
 
+    public let videos: VideoCollection?
+
+    public let credits: ShowCredits?
+
+    public let releaseDates: ReleaseDateCollection?
+    
+    public let images: ImageCollection?
+
     ///
     /// Creates a movie object.
     ///
@@ -182,7 +190,11 @@ public struct Movie: Identifiable, Codable, Equatable, Hashable {
         voteAverage: Double? = nil,
         voteCount: Int? = nil,
         hasVideo: Bool? = nil,
-        isAdultOnly: Bool? = nil
+        isAdultOnly: Bool? = nil,
+        videos: VideoCollection? = nil,
+        credits: ShowCredits? = nil,
+        releaseDates: ReleaseDateCollection? = nil,
+        images: ImageCollection? = nil
     ) {
         self.id = id
         self.title = title
@@ -208,6 +220,11 @@ public struct Movie: Identifiable, Codable, Equatable, Hashable {
         self.voteCount = voteCount
         self.hasVideo = hasVideo
         self.isAdultOnly = isAdultOnly
+        self.videos = videos
+        self.credits = credits
+        self.releaseDates = releaseDates
+        self.images = images
+
     }
 
 }
@@ -239,6 +256,10 @@ extension Movie {
         case voteCount
         case hasVideo = "video"
         case isAdultOnly = "adult"
+        case videos
+        case credits
+        case releaseDates
+        case images
     }
 
     public init(from decoder: Decoder) throws {
@@ -289,6 +310,10 @@ extension Movie {
         self.voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
         self.hasVideo = try container.decodeIfPresent(Bool.self, forKey: .hasVideo)
         self.isAdultOnly = try container.decodeIfPresent(Bool.self, forKey: .isAdultOnly)
+        self.videos = try container.decodeIfPresent(VideoCollection.self, forKey: .videos)
+        self.credits = try container.decodeIfPresent(ShowCredits.self, forKey: .credits)
+        self.releaseDates = try container.decodeIfPresent(ReleaseDateCollection.self, forKey: .releaseDates)
+        self.images = try container.decodeIfPresent(ImageCollection.self, forKey: .images)
     }
 
 }

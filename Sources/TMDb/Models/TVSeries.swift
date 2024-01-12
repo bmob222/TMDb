@@ -144,6 +144,16 @@ public struct TVSeries: Identifiable, Codable, Equatable, Hashable {
     ///
     public let isAdultOnly: Bool?
 
+
+    public let videos: VideoCollection?
+
+    public let credits: ShowCredits?
+
+    public let images: ImageCollection?
+
+    public let contentRatings: ContentRatingsCollection?
+
+    
     ///
     /// Creates a TV series object.
     ///
@@ -202,7 +212,11 @@ public struct TVSeries: Identifiable, Codable, Equatable, Hashable {
         popularity: Double? = nil,
         voteAverage: Double? = nil,
         voteCount: Int? = nil,
-        isAdultOnly: Bool? = nil
+        isAdultOnly: Bool? = nil,
+        videos: VideoCollection? = nil,
+        credits: ShowCredits? = nil,
+        images: ImageCollection? = nil,
+        contentRatings: ContentRatingsCollection? = nil
     ) {
         self.id = id
         self.name = name
@@ -231,6 +245,10 @@ public struct TVSeries: Identifiable, Codable, Equatable, Hashable {
         self.voteAverage = voteAverage
         self.voteCount = voteCount
         self.isAdultOnly = isAdultOnly
+        self.videos = videos
+        self.credits = credits
+        self.images = images
+        self.contentRatings = contentRatings
     }
 
 }
@@ -265,6 +283,10 @@ extension TVSeries {
         case firstAirDate
         case homepageURL = "homepage"
         case isAdultOnly = "adult"
+        case videos
+        case credits
+        case images
+        case contentRatings = "contentRatings"
     }
 
     public init(from decoder: Decoder) throws {
@@ -318,6 +340,10 @@ extension TVSeries {
         self.voteAverage = try container.decodeIfPresent(Double.self, forKey: .voteAverage)
         self.voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount)
         self.isAdultOnly = try container.decodeIfPresent(Bool.self, forKey: .isAdultOnly)
+        self.videos = try container.decodeIfPresent(VideoCollection.self, forKey: .videos)
+        self.credits = try container.decodeIfPresent(ShowCredits.self, forKey: .credits)
+        self.images = try container.decodeIfPresent(ImageCollection.self, forKey: .images)
+        self.contentRatings = try container.decodeIfPresent(ContentRatingsCollection.self, forKey: .contentRatings)
     }
 
 }
