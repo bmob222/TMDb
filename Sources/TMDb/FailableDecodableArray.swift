@@ -3,22 +3,22 @@ import Foundation
 /// Property wrapper to be used in arrays where, during the decode process, we don't want to fail the whole array if an element is invalid.
 ///
 
-public protocol CodableHashableEquatable : Codable, Hashable, Equatable {
-    
+public protocol CodableHashableEquatable: Codable, Hashable, Equatable {
+
 }
 @propertyWrapper
 public struct FailableDecodableArray<Element: CodableHashableEquatable>: Codable, Hashable, Equatable {
     public static func == (lhs: FailableDecodableArray<Element>, rhs: FailableDecodableArray<Element>) -> Bool {
         lhs.wrappedValue == rhs.wrappedValue
     }
-    
+
     public var wrappedValue: [Element]
 
     private struct ElementWrapper: Codable, Hashable, Equatable {
         static func == (lhs: FailableDecodableArray<Element>.ElementWrapper, rhs: FailableDecodableArray<Element>.ElementWrapper) -> Bool {
             lhs.element == rhs.element
         }
-        
+
         var element: Element?
 
         init(from decoder: Decoder) throws {

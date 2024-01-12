@@ -77,7 +77,6 @@ extension MoviesEndpoint: Endpoint {
                 .appendingPage(page)
                 .appendingQueryItem(name: "include_adult", value: "false")
 
-
         case .topRated(let page):
             return Self.basePath
                 .appendingPathComponent("top_rated")
@@ -87,12 +86,12 @@ extension MoviesEndpoint: Endpoint {
             return Self.basePath
                 .appendingPathComponent("upcoming")
                 .appendingPage(page)
-            
+
         case .external_ids(movieID: let movieID):
             return Self.basePath
                 .appendingPathComponent(movieID)
                 .appendingPathComponent("external_ids")
-            
+
         case .watch(let movieID):
             return Self.basePath
                 .appendingPathComponent(movieID)

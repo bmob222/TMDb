@@ -2,8 +2,8 @@ import Foundation
 
 enum DiscoverEndpoint {
 
-    case movies(sortedBy: MovieSort? = nil, people: [Person.ID]? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers:Int? = nil, watch_region: String? = nil)
-    case tvSeries(sortedBy: TVSeriesSort? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers:Int? = nil, watch_region: String? = nil)
+    case movies(sortedBy: MovieSort? = nil, people: [Person.ID]? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers: Int? = nil, watch_region: String? = nil)
+    case tvSeries(sortedBy: TVSeriesSort? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers: Int? = nil, watch_region: String? = nil)
 
 }
 

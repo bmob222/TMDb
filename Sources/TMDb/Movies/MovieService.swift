@@ -46,8 +46,7 @@ public final class MovieService {
 
         return movie
     }
-    
-    
+
     public func externalIDs(forMovie id: Movie.ID) async throws -> ExternalIDs {
         let externalIDs: ExternalIDs
         do {
@@ -58,7 +57,6 @@ public final class MovieService {
 
         return externalIDs
     }
-
 
     ///
     /// Returns the cast and crew of a movie.

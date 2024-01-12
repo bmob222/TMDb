@@ -134,7 +134,7 @@ public struct Movie: Identifiable, Codable, Equatable, Hashable {
     public let credits: ShowCredits?
 
     public let releaseDates: ReleaseDateCollection?
-    
+
     public let images: ImageCollection?
 
     ///

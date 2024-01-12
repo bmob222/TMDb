@@ -106,7 +106,7 @@ extension URL {
 
         return appendingQueryItem(name: QueryItemName.withPeople, value: value)
     }
-    
+
     func appendingWithNetworks(_ withNetworks: Int?) -> Self {
         guard let withNetworks else {
             return self
@@ -122,8 +122,5 @@ extension URL {
 
         return appendingQueryItem(name: QueryItemName.withWatchProviders, value: withWatchProviders)
     }
-    
-    
-
 
 }

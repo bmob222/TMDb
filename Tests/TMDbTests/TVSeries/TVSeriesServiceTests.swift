@@ -224,7 +224,7 @@ final class TVSeriesServiceTests: XCTestCase {
         let result = try await service.externalLinks(forTVSeries: tvSeriesID)
 
         XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID,seasonNumber: nil,epsoideNumber: nil).path)
+        XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID, seasonNumber: nil, epsoideNumber: nil).path)
     }
 
 }

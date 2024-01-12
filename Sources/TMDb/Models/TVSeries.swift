@@ -144,7 +144,6 @@ public struct TVSeries: Identifiable, Codable, Equatable, Hashable {
     ///
     public let isAdultOnly: Bool?
 
-
     public let videos: VideoCollection?
 
     public let credits: ShowCredits?
@@ -153,7 +152,6 @@ public struct TVSeries: Identifiable, Codable, Equatable, Hashable {
 
     public let contentRatings: ContentRatingsCollection?
 
-    
     ///
     /// Creates a TV series object.
     ///

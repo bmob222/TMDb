@@ -69,7 +69,6 @@ extension TVSeriesEndpoint: Endpoint {
                 .appendingPage(page)
                 .appendingQueryItem(name: "include_adult", value: "false")
 
-            
         case .external_ids(tvSeriesID: let tvSeriesID):
             return Self.basePath
                 .appendingPathComponent(tvSeriesID)
@@ -80,7 +79,7 @@ extension TVSeriesEndpoint: Endpoint {
                 .appendingPathComponent(tvSeriesID)
                 .appendingPathComponent("watch/providers")
 
-        case .externalIDs(let tvSeriesID,let seasonNumber, let epsoideNumber):
+        case .externalIDs(let tvSeriesID, let seasonNumber, let epsoideNumber):
             let url = Self.basePath
                 .appendingPathComponent(tvSeriesID)
             if let seasonNumber, let epsoideNumber {

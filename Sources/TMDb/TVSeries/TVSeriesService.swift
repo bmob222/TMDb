@@ -46,7 +46,7 @@ public final class TVSeriesService {
 
         return tvSeries
     }
-    
+
     public func externalIDs(forTVSeries id: TVSeries.ID, seasonNumber: Int? = nil, epsoideNumber: Int? = nil) async throws -> ExternalIDs {
         let externalIDs: ExternalIDs
         do {
@@ -57,8 +57,6 @@ public final class TVSeriesService {
 
         return externalIDs
     }
-
-
 
     ///
     /// Returns the cast and crew of a TV series.
@@ -284,7 +282,7 @@ public final class TVSeriesService {
     public func externalLinks(forTVSeries tvSeriesID: TVSeries.ID, seasonNumber: Int? = nil, epsoideNumber: Int? = nil) async throws -> TVSeriesExternalLinksCollection {
         let linksCollection: TVSeriesExternalLinksCollection
         do {
-            linksCollection = try await apiClient.get(endpoint: TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID,seasonNumber: seasonNumber, epsoideNumber: epsoideNumber))
+            linksCollection = try await apiClient.get(endpoint: TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID, seasonNumber: seasonNumber, epsoideNumber: epsoideNumber))
         } catch let error {
             throw TMDbError(error: error)
         }
