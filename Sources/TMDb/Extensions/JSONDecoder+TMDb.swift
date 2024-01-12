@@ -1,6 +1,6 @@
 import Foundation
 
-extension JSONDecoder {
+public extension JSONDecoder {
 
     static var theMovieDatabase: JSONDecoder {
         let decoder = JSONDecoder()
