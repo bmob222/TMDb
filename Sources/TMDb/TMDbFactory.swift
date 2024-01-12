@@ -3,15 +3,15 @@ import Foundation
 import FoundationNetworking
 #endif
 
-final class TMDbFactory {
+public final class TMDbFactory {
     private init() { }
 
 }
 
-extension TMDbFactory {
-    public static var locale: Locale?
+public extension TMDbFactory {
+    static var locale: Locale?
 
-    static var apiClient: some APIClient {
+    internal static var apiClient: some APIClient {
         TMDbAPIClient(
             apiKey: TMDB.configuration.apiKey(),
             baseURL: .tmdbAPIBaseURL,
@@ -21,7 +21,7 @@ extension TMDbFactory {
         )
     }
 
-    static func localeProvider() -> Locale {
+    internal static func localeProvider() -> Locale {
         locale ?? .current
     }
 
