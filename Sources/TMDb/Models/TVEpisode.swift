@@ -66,6 +66,9 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHash
     /// Number of votes.
     ///
     public let voteCount: Int?
+    
+    
+    public let runtime: Int?
 
     ///
     /// Creates a TV episode object.
@@ -96,7 +99,8 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHash
         crew: [CrewMember] = [],
         guestStars: [CastMember]? = nil,
         voteAverage: Double? = nil,
-        voteCount: Int? = nil
+        voteCount: Int? = nil,
+        runtime: Int? = nil
     ) {
         self.id = id
         self.name = name
@@ -110,6 +114,7 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHash
         self.guestStars = guestStars
         self.voteAverage = voteAverage
         self.voteCount = voteCount
+        self.runtime = runtime
     }
 
 }
