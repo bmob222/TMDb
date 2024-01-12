@@ -1,6 +1,6 @@
 import Foundation
 
-extension DateFormatter {
+public extension DateFormatter {
 
     static var theMovieDatabase: DateFormatter {
         let dateFormatter = DateFormatter()
