@@ -30,7 +30,6 @@ final class MovieIntegrationTests: XCTestCase {
 
         let credits = try await movieService.credits(forMovie: movieID)
 
-        XCTAssertEqual(credits.id, movieID)
         XCTAssertFalse(credits.cast.isEmpty)
         XCTAssertFalse(credits.crew.isEmpty)
     }
@@ -48,7 +47,6 @@ final class MovieIntegrationTests: XCTestCase {
 
         let imageCollection = try await movieService.images(forMovie: movieID)
 
-        XCTAssertEqual(imageCollection.id, movieID)
         XCTAssertFalse(imageCollection.posters.isEmpty)
         XCTAssertFalse(imageCollection.logos.isEmpty)
         XCTAssertFalse(imageCollection.backdrops.isEmpty)

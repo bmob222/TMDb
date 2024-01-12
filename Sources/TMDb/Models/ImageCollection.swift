@@ -8,11 +8,6 @@ import Foundation
 public struct ImageCollection: Codable, Equatable, Hashable {
 
     ///
-    /// Movie or TV series identifier for these images.
-    ///
-    public let id: Int
-
-    ///
     /// Poster images.
     ///
     public let posters: [ImageMetadata]
@@ -36,12 +31,10 @@ public struct ImageCollection: Codable, Equatable, Hashable {
     ///    - backdrops: Backdrop images.
     ///    
     public init(
-        id: Int,
         posters: [ImageMetadata],
         logos: [ImageMetadata],
         backdrops: [ImageMetadata]
     ) {
-        self.id = id
         self.posters = posters
         self.logos = logos
         self.backdrops = backdrops

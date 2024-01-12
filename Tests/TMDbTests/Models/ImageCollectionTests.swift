@@ -6,14 +6,12 @@ final class ImageCollectionTests: XCTestCase {
     func testDecodeReturnsImageCollection() throws {
         let result = try JSONDecoder.theMovieDatabase.decode(ImageCollection.self, fromResource: "image-collection")
 
-        XCTAssertEqual(result.id, imageCollection.id)
         XCTAssertEqual(result.backdrops, imageCollection.backdrops)
         XCTAssertEqual(result.logos, imageCollection.logos)
         XCTAssertEqual(result.posters, imageCollection.posters)
     }
 
     private let imageCollection = ImageCollection(
-        id: 550,
         posters: [
             ImageMetadata(filePath: URL(string: "/fpemzjF623QVTe98pCVlwwtFC5N.jpg")!, width: 1200, height: 1800,
                           aspectRatio: 0.666666666666667, voteAverage: 5.21, voteCount: 3, languageCode: "en")

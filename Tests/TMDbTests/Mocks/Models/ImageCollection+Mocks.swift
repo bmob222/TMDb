@@ -10,7 +10,6 @@ extension ImageCollection {
         backdrops: [ImageMetadata] = .mocks
     ) -> Self {
         .init(
-            id: id,
             posters: posters,
             logos: logos,
             backdrops: backdrops

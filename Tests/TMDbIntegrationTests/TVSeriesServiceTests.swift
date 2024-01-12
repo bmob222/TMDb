@@ -47,7 +47,6 @@ final class TVSeriesServiceTests: XCTestCase {
 
         let imageCollection = try await tvSeriesService.images(forTVSeries: tvSeriesID)
 
-        XCTAssertEqual(imageCollection.id, tvSeriesID)
         XCTAssertFalse(imageCollection.backdrops.isEmpty)
         XCTAssertFalse(imageCollection.logos.isEmpty)
         XCTAssertFalse(imageCollection.posters.isEmpty)

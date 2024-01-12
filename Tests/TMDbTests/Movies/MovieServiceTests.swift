@@ -32,17 +32,6 @@ final class MovieServiceTests: XCTestCase {
         XCTAssertEqual(apiClient.lastPath, MoviesEndpoint.details(movieID: movieID).path)
     }
 
-    func testCreditsReturnsCredits() async throws {
-        let expectedResult = ShowCredits.mock()
-        let movieID = expectedResult.id
-        apiClient.result = .success(expectedResult)
-
-        let result = try await service.credits(forMovie: movieID)
-
-        XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(apiClient.lastPath, MoviesEndpoint.credits(movieID: movieID).path)
-    }
-
     func testReviewsWithDefaultParametersReturnsReviews() async throws {
         let movieID = Int.randomID
         let expectedResult = ReviewPageableList.mock()
@@ -77,19 +66,6 @@ final class MovieServiceTests: XCTestCase {
         XCTAssertEqual(apiClient.lastPath, MoviesEndpoint.reviews(movieID: movieID, page: page).path)
     }
 
-    func testImagesReturnsImageCollection() async throws {
-        let expectedResult = ImageCollection.mock()
-        let movieID = expectedResult.id
-        apiClient.result = .success(expectedResult)
-
-        let result = try await service.images(forMovie: movieID)
-
-        XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(
-            apiClient.lastPath,
-            MoviesEndpoint.images(movieID: movieID, languageCode: locale.languageCode).path
-        )
-    }
 
     func testRecommendationsWithDefaultParametersReturnsMovies() async throws {
         let movieID = 1

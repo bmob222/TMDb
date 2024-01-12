@@ -5,12 +5,7 @@ import Foundation
 ///
 /// A person can be both a cast member and crew member of the same show.
 ///
-public struct ShowCredits: Identifiable, Codable, Equatable, Hashable {
-
-    ///
-    /// Movie or TV series identifier.
-    ///
-    public let id: Int
+public struct ShowCredits: Codable, Equatable, Hashable {
 
     ///
     /// Cast members of the show.
@@ -30,8 +25,7 @@ public struct ShowCredits: Identifiable, Codable, Equatable, Hashable {
     ///    - cast: Cast members of the show.
     ///    - crew: Crew members of the show.
     ///
-    public init(id: Int, cast: [CastMember], crew: [CrewMember]) {
-        self.id = id
+    public init(cast: [CastMember], crew: [CrewMember]) {
         self.cast = cast
         self.crew = crew
     }
