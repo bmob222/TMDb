@@ -315,4 +315,50 @@ public final class MovieService {
         return movieList
     }
 
+    ///
+    /// Returns watch providers for a movie
+    ///
+    /// [TMDb API - Movie: Watch providers](https://developer.themoviedb.org/reference/movie-watch-providers)
+    /// - Parameters:
+    ///    - id: The identifier of the movie.
+    ///
+    /// - Throws: TMDb data error ``TMDbError``.
+    ///
+    /// - Returns: Watch providers for movie in current region.
+    ///
+    public func watchProviders(forMovie id: Movie.ID) async throws -> ShowWatchProvider? {
+        guard let regionCode = localeProvider().regionCode else {
+            return nil
+        }
+        let result: ShowWatchProviderResult
+        do {
+            result = try await apiClient.get(endpoint: MoviesEndpoint.watch(movieID: id))
+        } catch let error {
+            throw TMDbError(error: error)
+        }
+
+        return result.results[regionCode]
+    }
+
+    /// 
+    /// Returns a collection of media databases and social links for a movie.
+    ///
+    /// [TMDb API - Movie: External IDs](https://developer.themoviedb.org/reference/movie-external-ids)
+    ///
+    /// - Parameters:
+    ///    - movieID: The identifier of the movie.
+    ///
+    /// - Returns: A collection of external links for the specificed movie.
+    ///
+    public func externalLinks(forMovie movieID: Movie.ID) async throws -> MovieExternalLinksCollection {
+        let linksCollection: MovieExternalLinksCollection
+        do {
+            linksCollection = try await apiClient.get(endpoint: MoviesEndpoint.externalIDs(movieID: movieID))
+        } catch let error {
+            throw TMDbError(error: error)
+        }
+
+        return linksCollection
+    }
+
 }

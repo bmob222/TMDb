@@ -11,6 +11,8 @@ enum TVSeriesEndpoint {
     case recommendations(tvSeriesID: TVSeries.ID, page: Int? = nil)
     case similar(tvSeriesID: TVSeries.ID, page: Int? = nil)
     case popular(page: Int? = nil)
+    case watch(tvSeriesID: TVSeries.ID)
+    case externalIDs(tvSeriesID: TVSeries.ID)
 
 }
 
@@ -71,6 +73,15 @@ extension TVSeriesEndpoint: Endpoint {
                 .appendingPathComponent(tvSeriesID)
                 .appendingPathComponent("external_ids")
 
+        case .watch(let tvSeriesID):
+            return Self.basePath
+                .appendingPathComponent(tvSeriesID)
+                .appendingPathComponent("watch/providers")
+
+        case .externalIDs(let tvSeriesID):
+            return Self.basePath
+                .appendingPathComponent(tvSeriesID)
+                .appendingPathComponent("external_ids")
         }
     }
 
