@@ -50,7 +50,6 @@ final class TVEpisodeServiceTests: XCTestCase {
         let videoCollection = try await tvEpisodeService.videos(forEpisode: episodeNumber, inSeason: seasonNumber,
                                                                 inTVSeries: tvSeriesID)
 
-        XCTAssertEqual(videoCollection.id, 63058)
         XCTAssertFalse(videoCollection.results.isEmpty)
     }
 

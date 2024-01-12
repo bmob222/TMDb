@@ -59,7 +59,6 @@ final class MovieIntegrationTests: XCTestCase {
 
         let videoCollection = try await movieService.videos(forMovie: movieID)
 
-        XCTAssertEqual(videoCollection.id, movieID)
         XCTAssertFalse(videoCollection.results.isEmpty)
     }
 

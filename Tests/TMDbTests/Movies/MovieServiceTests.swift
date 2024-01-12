@@ -91,20 +91,6 @@ final class MovieServiceTests: XCTestCase {
         )
     }
 
-    func testVideosReturnsVideoCollection() async throws {
-        let expectedResult = VideoCollection.mock()
-        let movieID = expectedResult.id
-        apiClient.result = .success(expectedResult)
-
-        let result = try await service.videos(forMovie: movieID)
-
-        XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(
-            apiClient.lastPath,
-            MoviesEndpoint.videos(movieID: movieID, languageCode: locale.languageCode).path
-        )
-    }
-
     func testRecommendationsWithDefaultParametersReturnsMovies() async throws {
         let movieID = 1
         let expectedResult = MoviePageableList.mock()

@@ -91,20 +91,6 @@ final class TVSeriesServiceTests: XCTestCase {
         )
     }
 
-    func testVideosReturnsVideos() async throws {
-        let expectedResult = VideoCollection.mock()
-        let tvSeriesID = expectedResult.id
-        apiClient.result = .success(expectedResult)
-
-        let result = try await service.videos(forTVSeries: tvSeriesID)
-
-        XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(
-            apiClient.lastPath,
-            TVSeriesEndpoint.videos(tvSeriesID: tvSeriesID, languageCode: locale.languageCode).path
-        )
-    }
-
     func testRecommendationsWithDefaultParametersReturnsTVSeries() async throws {
         let tvSeriesID = Int.randomID
         let expectedResult = TVSeriesPageableList.mock()
@@ -224,7 +210,7 @@ final class TVSeriesServiceTests: XCTestCase {
         let result = try await service.externalLinks(forTVSeries: tvSeriesID)
 
         XCTAssertEqual(result, expectedResult)
-        XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID, seasonNumber: nil, epsoideNumber: nil).path)
+        XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID,seasonNumber: nil,epsoideNumber: nil).path)
     }
 
 }

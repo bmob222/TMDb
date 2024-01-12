@@ -8,7 +8,6 @@ extension VideoCollection {
         results: [VideoMetadata] = .mocks
     ) -> Self {
         .init(
-            id: id,
             results: results
         )
     }
