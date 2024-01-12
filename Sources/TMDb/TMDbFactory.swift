@@ -13,9 +13,9 @@ extension TMDbFactory {
 
     static var apiClient: some APIClient {
         TMDbAPIClient(
-            apiKey: TMDb.configuration.apiKey(),
+            apiKey: TMDB.configuration.apiKey(),
             baseURL: .tmdbAPIBaseURL,
-            httpClient: TMDb.configuration.httpClient(),
+            httpClient: TMDB.configuration.httpClient(),
             serialiser: serialiser,
             localeProvider: localeProvider
         )

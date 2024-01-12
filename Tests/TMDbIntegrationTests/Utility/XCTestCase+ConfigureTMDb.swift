@@ -4,7 +4,7 @@ import XCTest
 extension XCTestCase {
 
     func configureTMDb() throws {
-        try TMDb.configure(TMDbConfiguration(apiKey: tmdbAPIKey()))
+        try TMDB.configure(TMDbConfiguration(apiKey: tmdbAPIKey()))
     }
 
     private func tmdbAPIKey() throws -> String {
