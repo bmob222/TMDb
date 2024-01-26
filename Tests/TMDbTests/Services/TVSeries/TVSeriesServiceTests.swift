@@ -98,6 +98,7 @@ final class TVSeriesServiceTests: XCTestCase {
             TVSeriesEndpoint.images(tvSeriesID: tvSeriesID, languageCode: localeProvider.languageCode).path
         )
     }
+
     func testRecommendationsWithDefaultParametersReturnsTVSeries() async throws {
         let tvSeriesID = Int.randomID
         let expectedResult = TVSeriesPageableList.mock()

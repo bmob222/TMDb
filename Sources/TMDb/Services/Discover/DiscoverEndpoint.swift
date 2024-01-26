@@ -45,15 +45,15 @@ extension DiscoverEndpoint: Endpoint {
 
     var path: URL {
         switch self {
-        case .movies(
-            let sortedBy,
-            let people,
-            let page,
-            let withNetworks,
-            let withWatchProviders,
-            let watchRegion
+        case let .movies(
+            sortedBy,
+            people,
+            page,
+            withNetworks,
+            withWatchProviders,
+            watchRegion
         ):
-            return Self.basePath
+            Self.basePath
                 .appendingPathComponent("movie")
                 .appendingSortBy(sortedBy)
                 .appendingWithPeople(people)
@@ -63,14 +63,14 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWatchRegion(watchRegion)
                 .appendingQueryItem(name: "include_adult", value: "false")
 
-        case .tvSeries(
-            let sortedBy,
-            let page,
-            let withNetworks,
-            let withWatchProviders,
-            let watchRegion
+        case let .tvSeries(
+            sortedBy,
+            page,
+            withNetworks,
+            withWatchProviders,
+            watchRegion
         ):
-            return Self.basePath
+            Self.basePath
                 .appendingPathComponent("tv")
                 .appendingSortBy(sortedBy)
                 .appendingPage(page)

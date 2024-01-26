@@ -23,7 +23,7 @@ import Foundation
 #endif
 
 public final class TMDbFactory {
-    private init() { }
+    private init() {}
 
 }
 

@@ -1,5 +1,5 @@
 //
-//  TMDb.swift
+//  TMDB.swift
 //  TMDb
 //
 //  Copyright © 2024 Adam Young.
@@ -25,7 +25,7 @@ import Foundation
 @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
 public final class TMDB {
 
-    static private(set) var configuration = TMDbConfiguration(
+    private(set) static var configuration = TMDbConfiguration(
         apiKey: {
             preconditionFailure("Configuration must first be set by calling TMDb.configure(_:).")
         },
@@ -34,7 +34,7 @@ public final class TMDB {
         }
     )
 
-    private init() { }
+    private init() {}
 
     ///
     /// Sets the configuration to be used with TMDb services.

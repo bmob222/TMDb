@@ -243,7 +243,6 @@ public struct Movie: Identifiable, Codable, Equatable, Hashable {
         self.credits = credits
         self.releaseDates = releaseDates
         self.images = images
-
     }
 
 }

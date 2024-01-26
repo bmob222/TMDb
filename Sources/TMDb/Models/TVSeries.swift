@@ -303,7 +303,7 @@ extension TVSeries {
         case videos
         case credits
         case images
-        case contentRatings = "contentRatings"
+        case contentRatings
     }
 
     public init(from decoder: Decoder) throws {

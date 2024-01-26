@@ -23,7 +23,7 @@ import TMDb
 extension VideoCollection {
 
     static func mock(
-        id: Int = .randomID,
+        id _: Int = .randomID,
         results: [VideoMetadata] = .mocks
     ) -> Self {
         .init(

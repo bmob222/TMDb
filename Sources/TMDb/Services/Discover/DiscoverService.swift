@@ -55,7 +55,7 @@ public final class DiscoverService {
     /// - Throws: TMDb error ``TMDbError``.
     ///
     /// - Returns: Matching movies as a pageable list.
-    /// 
+    ///
     public func movies(
         sortedBy: MovieSort? = nil,
         withPeople people: [Person.ID]? = nil,
