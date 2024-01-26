@@ -25,7 +25,7 @@ import Foundation
 /// Details of generating session IDs for TMDb can be found at
 /// [TMDb API - How do I generate a session ID?](https://developer.themoviedb.org/reference/authentication-how-do-i-generate-a-session-id)
 ///
-@available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
+@available(macOS 13.0, iOS 14.0, watchOS 9.0, tvOS 15.0, *)
 public final class AuthenticationService {
 
     private let apiClient: any APIClient
