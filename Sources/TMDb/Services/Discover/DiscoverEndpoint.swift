@@ -62,7 +62,9 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
                 .appendingQueryItem(name: "include_adult", value: "false")
-                .appendingQueryItem(name: "vote_count.gte", value: 40)
+                .appendingQueryItem(name: "vote_count.gte", value: 50)
+                .appendingQueryItem(name: "vote_average.gte", value: 5)
+                .appendingQueryItem(name: "vote_average.lte", value: 10)
 
         case let .tvSeries(
             sortedBy,
@@ -79,7 +81,9 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
                 .appendingQueryItem(name: "include_adult", value: "false")
-                .appendingQueryItem(name: "vote_count.gte", value: 40)
+                .appendingQueryItem(name: "vote_count.gte", value: 50)
+                .appendingQueryItem(name: "vote_average.gte", value: 5)
+                .appendingQueryItem(name: "vote_average.lte", value: 10)
         }
     }
 
