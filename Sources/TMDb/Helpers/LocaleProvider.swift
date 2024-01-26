@@ -25,7 +25,7 @@ final class LocaleProvider: LocaleProviding {
         #if os(Linux)
             locale.languageCode
         #else
-            if #available(macOS 13.0, *) {
+        if #available(macOS 13.0, iOS 16.0,  tvOS 16.0, *) {
                 locale.language.languageCode?.identifier
             } else {
                 locale.languageCode
@@ -37,7 +37,7 @@ final class LocaleProvider: LocaleProviding {
         #if os(Linux)
             locale.regionCode
         #else
-            if #available(macOS 13.0, *) {
+            if #available(macOS 13.0, iOS 16.0, tvOS 16.0, *) {
                 locale.region?.identifier
             } else {
                 locale.regionCode

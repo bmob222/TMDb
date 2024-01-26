@@ -11,9 +11,9 @@ let package = Package(
 
     platforms: [
         .macOS(.v13),
-        .iOS(.v16),
+        .iOS(.v14),
         .watchOS(.v9),
-        .tvOS(.v16),
+        .tvOS(.v15),
         .visionOS(.v1)
     ],
 
