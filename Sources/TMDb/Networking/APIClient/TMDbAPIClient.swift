@@ -1,19 +1,38 @@
+//
+//  TMDbAPIClient.swift
+//  TMDb
+//
+//  Copyright © 2024 Adam Young.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an AS IS BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
 import Foundation
 
 final class TMDbAPIClient: APIClient {
 
     private let apiKey: String
     private let baseURL: URL
-    private let httpClient: HTTPClient
+    private let httpClient: any HTTPClient
     private let serialiser: Serialiser
-    private let localeProvider: () -> Locale
+    private let localeProvider: any LocaleProviding
 
     init(
         apiKey: String,
         baseURL: URL,
-        httpClient: HTTPClient,
+        httpClient: some HTTPClient,
         serialiser: Serialiser,
-        localeProvider: @escaping () -> Locale
+        localeProvider: some LocaleProviding
     ) {
         self.apiKey = apiKey
         self.baseURL = baseURL
@@ -32,7 +51,7 @@ final class TMDbAPIClient: APIClient {
 
         do {
             response = try await httpClient.get(url: url, headers: headers)
-        } catch {
+        } catch let error {
             throw TMDbAPIError.network(error)
         }
 
@@ -67,12 +86,12 @@ extension TMDbAPIClient {
 
         return urlComponents.url!
             .appendingAPIKey(apiKey)
-            .appendingLanguage(localeProvider().languageCode)
+            .appendingLanguage(localeProvider.languageCode)
     }
 
     private func validate(response: HTTPResponse) async throws {
         let statusCode = response.statusCode
-        if (200...299).contains(statusCode) {
+        if (200 ... 299).contains(statusCode) {
             return
         }
 
