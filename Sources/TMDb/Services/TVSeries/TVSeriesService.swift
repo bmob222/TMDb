@@ -66,10 +66,20 @@ public final class TVSeriesService {
         return tvSeries
     }
 
-    public func externalIDs(forTVSeries id: TVSeries.ID, seasonNumber: Int? = nil, epsoideNumber: Int? = nil) async throws -> ExternalIDs {
+    public func externalIDs(
+        forTVSeries id: TVSeries.ID,
+        seasonNumber: Int? = nil,
+        epsoideNumber: Int? = nil
+    ) async throws -> ExternalIDs {
         let externalIDs: ExternalIDs
         do {
-            externalIDs = try await apiClient.get(endpoint: TVSeriesEndpoint.external_ids(tvSeriesID: id))
+            externalIDs = try await apiClient.get(
+                endpoint: TVSeriesEndpoint.externalIDs(
+                    tvSeriesID: id,
+                    seasonNumber: seasonNumber,
+                    epsoideNumber: epsoideNumber
+                )
+            )
         } catch let error {
             throw TMDbError(error: error)
         }
@@ -300,10 +310,20 @@ public final class TVSeriesService {
     ///
     /// - Returns: A collection of external links for the specificed TV series.
     ///
-    public func externalLinks(forTVSeries tvSeriesID: TVSeries.ID, seasonNumber: Int? = nil, epsoideNumber: Int? = nil) async throws -> TVSeriesExternalLinksCollection {
+    public func externalLinks(
+        forTVSeries tvSeriesID: TVSeries.ID,
+        seasonNumber: Int? = nil,
+        epsoideNumber: Int? = nil
+    ) async throws -> TVSeriesExternalLinksCollection {
         let linksCollection: TVSeriesExternalLinksCollection
         do {
-            linksCollection = try await apiClient.get(endpoint: TVSeriesEndpoint.externalIDs(tvSeriesID: tvSeriesID, seasonNumber: seasonNumber, epsoideNumber: epsoideNumber))
+            linksCollection = try await apiClient.get(
+                endpoint: TVSeriesEndpoint.externalIDs(
+                    tvSeriesID: tvSeriesID,
+                    seasonNumber: seasonNumber,
+                    epsoideNumber: epsoideNumber
+                )
+            )
         } catch let error {
             throw TMDbError(error: error)
         }

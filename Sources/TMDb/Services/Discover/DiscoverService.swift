@@ -56,11 +56,25 @@ public final class DiscoverService {
     ///
     /// - Returns: Matching movies as a pageable list.
     /// 
-    public func movies(sortedBy: MovieSort? = nil, withPeople people: [Person.ID]? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers: Int? = nil, watch_region: String? = nil) async throws -> MoviePageableList {
+    public func movies(
+        sortedBy: MovieSort? = nil,
+        withPeople people: [Person.ID]? = nil,
+        page: Int? = nil,
+        withNetworks: Int? = nil,
+        withWatchProviders: Int? = nil,
+        watchRegion: String? = nil
+    ) async throws -> MoviePageableList {
         let movieList: MoviePageableList
         do {
             movieList = try await apiClient.get(
-                endpoint: DiscoverEndpoint.movies(sortedBy: sortedBy, people: people, page: page, with_networks: with_networks, with_watch_providers: with_watch_providers, watch_region: watch_region)
+                endpoint: DiscoverEndpoint.movies(
+                    sortedBy: sortedBy,
+                    people: people,
+                    page: page,
+                    withNetworks: withNetworks,
+                    withWatchProviders: withWatchProviders,
+                    watchRegion: watchRegion
+                )
             )
         } catch let error {
             throw TMDbError(error: error)
@@ -84,10 +98,24 @@ public final class DiscoverService {
     ///
     /// - Returns: Matching TV series as a pageable list.
     ///
-    public func tvSeries(sortedBy: TVSeriesSort? = nil, page: Int? = nil, with_networks: Int? = nil, with_watch_providers: Int? = nil, watch_region: String? = nil) async throws -> TVSeriesPageableList {
+    public func tvSeries(
+        sortedBy: TVSeriesSort? = nil,
+        page: Int? = nil,
+        withNetworks: Int? = nil,
+        withWatchProviders: Int? = nil,
+        watchRegion: String? = nil
+    ) async throws -> TVSeriesPageableList {
         let tvSeriesList: TVSeriesPageableList
         do {
-            tvSeriesList = try await apiClient.get(endpoint: DiscoverEndpoint.tvSeries(sortedBy: sortedBy, page: page, with_networks: with_networks, with_watch_providers: with_watch_providers, watch_region: watch_region))
+            tvSeriesList = try await apiClient.get(
+                endpoint: DiscoverEndpoint.tvSeries(
+                    sortedBy: sortedBy,
+                    page: page,
+                    withNetworks: withNetworks,
+                    withWatchProviders: withWatchProviders,
+                    watchRegion: watchRegion
+                )
+            )
         } catch let error {
             throw TMDbError(error: error)
         }
