@@ -39,6 +39,11 @@ extension TrendingEndpoint: Endpoint {
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
                 .appendingQueryItem(name: "include_adult", value: "false")
+                .appendingQueryItem(name: "vote_count.gte", value: 50)
+                .appendingQueryItem(name: "vote_average.gte", value: 5)
+                .appendingQueryItem(name: "vote_average.lte", value: 10)
+                .appendingQueryItem(name: "certification_country", value: "US")
+                .appendingQueryItem(name: "certification.lte", value: "NC-17")
 
         case let .tvSeries(timeWindow, page):
             Self.basePath
@@ -46,6 +51,11 @@ extension TrendingEndpoint: Endpoint {
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
                 .appendingQueryItem(name: "include_adult", value: "false")
+                .appendingQueryItem(name: "vote_count.gte", value: 50)
+                .appendingQueryItem(name: "vote_average.gte", value: 5)
+                .appendingQueryItem(name: "vote_average.lte", value: 10)
+                .appendingQueryItem(name: "certification_country", value: "US")
+                .appendingQueryItem(name: "certification.lte", value: "NC-17")
 
         case let .people(timeWindow, page):
             Self.basePath
@@ -53,6 +63,11 @@ extension TrendingEndpoint: Endpoint {
                 .appendingPathComponent(timeWindow)
                 .appendingPage(page)
                 .appendingQueryItem(name: "include_adult", value: "false")
+                .appendingQueryItem(name: "vote_count.gte", value: 50)
+                .appendingQueryItem(name: "vote_average.gte", value: 5)
+                .appendingQueryItem(name: "vote_average.lte", value: 10)
+                .appendingQueryItem(name: "certification_country", value: "US")
+                .appendingQueryItem(name: "certification.lte", value: "NC-17")
         }
     }
 
