@@ -74,7 +74,7 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHash
     ///
     /// TV episode guest cast members.
     ///
-    public let guestStars: [CastMember]?
+    @FailableDecodableArray public var guestStars: [CastMember]
 
     ///
     /// Average vote score.
@@ -115,7 +115,7 @@ public struct TVEpisode: Identifiable, Codable, Equatable, Hashable, CodableHash
         productionCode: String? = nil,
         stillPath: URL? = nil,
         crew: [CrewMember] = [],
-        guestStars: [CastMember]? = nil,
+        guestStars: [CastMember] = [],
         voteAverage: Double? = nil,
         voteCount: Int? = nil,
         runtime: Int? = nil
