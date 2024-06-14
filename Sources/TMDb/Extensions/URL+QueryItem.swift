@@ -49,6 +49,7 @@ extension URL {
         static let withNetworks = "with_networks"
         static let withWatchProviders = "with_watch_providers"
         static let watchRegion = "watch_region"
+        static let primaryReleaseYear = "primary_release_year"
     }
 
     func appendingAPIKey(_ apiKey: String) -> Self {
@@ -104,6 +105,14 @@ extension URL {
         }
 
         return appendingQueryItem(name: QueryItemName.year, value: year)
+    }
+    
+    func appendingPrimaryReleaseYear(_ year: Int?) -> Self {
+        guard let year else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.primaryReleaseYear, value: year)
     }
 
     func appendingFirstAirDateYear(_ year: Int?) -> Self {
