@@ -48,7 +48,7 @@ extension SearchEndpoint: Endpoint {
             Self.basePath
                 .appendingPathComponent("movie")
                 .appendingQueryItem(name: QueryItemName.query, value: query)
-                .appendingYear(year)
+                .appendingPrimaryReleaseYear(year)
                 .appendingPage(page)
 
         case let .tvSeries(query, firstAirDateYear, page):
