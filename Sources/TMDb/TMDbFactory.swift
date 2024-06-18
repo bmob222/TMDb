@@ -55,7 +55,7 @@ public extension TMDbFactory {
     }
 
     static func localeProvider() -> some LocaleProviding {
-        LocaleProvider(locale: .current)
+        LocaleProvider(locale: locale ?? .current)
     }
 
 }
