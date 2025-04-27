@@ -62,6 +62,7 @@ public final class DiscoverService {
         page: Int? = nil,
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
+        withGenres: Int? = nil,
         watchRegion: String? = nil
     ) async throws -> MoviePageableList {
         let movieList: MoviePageableList
@@ -73,7 +74,8 @@ public final class DiscoverService {
                     page: page,
                     withNetworks: withNetworks,
                     withWatchProviders: withWatchProviders,
-                    watchRegion: watchRegion
+                    watchRegion: watchRegion,
+                    withGenres: withGenres
                 )
             )
         } catch let error {
@@ -103,6 +105,7 @@ public final class DiscoverService {
         page: Int? = nil,
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
+        withGenres: Int? = nil,
         watchRegion: String? = nil
     ) async throws -> TVSeriesPageableList {
         let tvSeriesList: TVSeriesPageableList
@@ -113,7 +116,8 @@ public final class DiscoverService {
                     page: page,
                     withNetworks: withNetworks,
                     withWatchProviders: withWatchProviders,
-                    watchRegion: watchRegion
+                    watchRegion: watchRegion,
+                    withGenres: withGenres
                 )
             )
         } catch let error {
