@@ -27,14 +27,16 @@ enum DiscoverEndpoint {
         page: Int? = nil,
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
-        watchRegion: String? = nil
+        watchRegion: String? = nil,
+        withGenres: Int? = nil
     )
     case tvSeries(
         sortedBy: TVSeriesSort? = nil,
         page: Int? = nil,
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
-        watchRegion: String? = nil
+        watchRegion: String? = nil,
+        withGenres: Int? = nil
     )
 
 }
@@ -51,7 +53,8 @@ extension DiscoverEndpoint: Endpoint {
             page,
             withNetworks,
             withWatchProviders,
-            watchRegion
+            watchRegion,
+            withGenres
         ):
             Self.basePath
                 .appendingPathComponent("movie")
@@ -61,6 +64,7 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithNetworks(withNetworks)
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
+                .appendingWithGenres(withGenres)
                 .appendingQueryItem(name: "include_adult", value: "false")
                 .appendingQueryItem(name: "certification_country", value: "US")
                 .appendingQueryItem(name: "certification.lte", value: "NC-17")
@@ -70,7 +74,8 @@ extension DiscoverEndpoint: Endpoint {
             page,
             withNetworks,
             withWatchProviders,
-            watchRegion
+            watchRegion,
+            withGenres
         ):
             Self.basePath
                 .appendingPathComponent("tv")
@@ -79,6 +84,7 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithNetworks(withNetworks)
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
+                .appendingWithGenres(withGenres)
                 .appendingQueryItem(name: "include_adult", value: "false")
                 .appendingQueryItem(name: "certification_country", value: "US")
                 .appendingQueryItem(name: "certification.lte", value: "NC-17")

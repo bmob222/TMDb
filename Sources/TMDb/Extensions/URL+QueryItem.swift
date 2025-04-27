@@ -48,6 +48,7 @@ extension URL {
         static let withPeople = "with_people"
         static let withNetworks = "with_networks"
         static let withWatchProviders = "with_watch_providers"
+        static let with_genres = "with_genres"
         static let watchRegion = "watch_region"
         static let primaryReleaseYear = "primary_release_year"
     }
@@ -150,5 +151,15 @@ extension URL {
 
         return appendingQueryItem(name: QueryItemName.withWatchProviders, value: withWatchProviders)
     }
+    
+    
+    func appendingWithGenres(_ withGenres: Int?) -> Self {
+        guard let withGenres else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.withWatchProviders, value: withGenres)
+    }
+
 
 }
