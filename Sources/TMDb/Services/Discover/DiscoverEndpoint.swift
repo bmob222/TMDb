@@ -28,7 +28,18 @@ enum DiscoverEndpoint {
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
         watchRegion: String? = nil,
-        withGenres: Int? = nil
+        withGenres: Int? = nil,
+        primaryReleaseYear: Int? = nil,
+        primaryReleaseDateGte: String? = nil,
+        primaryReleaseDateLte: String? = nil,
+        releaseDateGte: String? = nil,
+        releaseDateLte: String? = nil,
+        voteCountGte: Int? = nil,
+        voteCountLte: Int? = nil,
+        voteAverageGte: Double? = nil,
+        voteAverageLte: Double? = nil,
+        withRuntimeGte: Int? = nil,
+        withRuntimeLte: Int? = nil
     )
     case tvSeries(
         sortedBy: TVSeriesSort? = nil,
@@ -36,7 +47,16 @@ enum DiscoverEndpoint {
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
         watchRegion: String? = nil,
-        withGenres: Int? = nil
+        withGenres: Int? = nil,
+        firstAirDateYear: Int? = nil,
+        firstAirDateGte: String? = nil,
+        firstAirDateLte: String? = nil,
+        voteCountGte: Int? = nil,
+        voteCountLte: Int? = nil,
+        voteAverageGte: Double? = nil,
+        voteAverageLte: Double? = nil,
+        withRuntimeGte: Int? = nil,
+        withRuntimeLte: Int? = nil
     )
 
 }
@@ -54,7 +74,18 @@ extension DiscoverEndpoint: Endpoint {
             withNetworks,
             withWatchProviders,
             watchRegion,
-            withGenres
+            withGenres,
+            primaryReleaseYear,
+            primaryReleaseDateGte,
+            primaryReleaseDateLte,
+            releaseDateGte,
+            releaseDateLte,
+            voteCountGte,
+            voteCountLte,
+            voteAverageGte,
+            voteAverageLte,
+            withRuntimeGte,
+            withRuntimeLte
         ):
             Self.basePath
                 .appendingPathComponent("movie")
@@ -65,6 +96,17 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
                 .appendingWithGenres(withGenres)
+                .appendingPrimaryReleaseYear(primaryReleaseYear)
+                .appendingPrimaryReleaseDateGte(primaryReleaseDateGte)
+                .appendingPrimaryReleaseDateLte(primaryReleaseDateLte)
+                .appendingReleaseDateGte(releaseDateGte)
+                .appendingReleaseDateLte(releaseDateLte)
+                .appendingVoteCountGte(voteCountGte)
+                .appendingVoteCountLte(voteCountLte)
+                .appendingVoteAverageGte(voteAverageGte)
+                .appendingVoteAverageLte(voteAverageLte)
+                .appendingWithRuntimeGte(withRuntimeGte)
+                .appendingWithRuntimeLte(withRuntimeLte)
                 .appendingQueryItem(name: "include_adult", value: "false")
                 .appendingQueryItem(name: "certification_country", value: "US")
                 .appendingQueryItem(name: "certification.lte", value: "NC-17")
@@ -75,7 +117,16 @@ extension DiscoverEndpoint: Endpoint {
             withNetworks,
             withWatchProviders,
             watchRegion,
-            withGenres
+            withGenres,
+            firstAirDateYear,
+            firstAirDateGte,
+            firstAirDateLte,
+            voteCountGte,
+            voteCountLte,
+            voteAverageGte,
+            voteAverageLte,
+            withRuntimeGte,
+            withRuntimeLte
         ):
             Self.basePath
                 .appendingPathComponent("tv")
@@ -85,6 +136,15 @@ extension DiscoverEndpoint: Endpoint {
                 .appendingWithWatchProviders(withWatchProviders)
                 .appendingWatchRegion(watchRegion)
                 .appendingWithGenres(withGenres)
+                .appendingFirstAirDateYear(firstAirDateYear)
+                .appendingFirstAirDateGte(firstAirDateGte)
+                .appendingFirstAirDateLte(firstAirDateLte)
+                .appendingVoteCountGte(voteCountGte)
+                .appendingVoteCountLte(voteCountLte)
+                .appendingVoteAverageGte(voteAverageGte)
+                .appendingVoteAverageLte(voteAverageLte)
+                .appendingWithRuntimeGte(withRuntimeGte)
+                .appendingWithRuntimeLte(withRuntimeLte)
                 .appendingQueryItem(name: "include_adult", value: "false")
                 .appendingQueryItem(name: "certification_country", value: "US")
                 .appendingQueryItem(name: "certification.lte", value: "NC-17")
