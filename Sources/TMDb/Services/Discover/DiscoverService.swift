@@ -51,6 +51,21 @@ public final class DiscoverService {
     ///    - sortedBy: How results should be sorted.
     ///    - people: A list of Person identifiers which to return only movies they have appeared in.
     ///    - page: The page of results to return.
+    ///    - withNetworks: Filter by network.
+    ///    - withWatchProviders: Filter by watch provider.
+    ///    - withGenres: Filter by genre.
+    ///    - watchRegion: Filter by watch region.
+    ///    - primaryReleaseYear: Filter by primary release year.
+    ///    - primaryReleaseDateGte: Filter by primary release date greater than or equal to (YYYY-MM-DD).
+    ///    - primaryReleaseDateLte: Filter by primary release date less than or equal to (YYYY-MM-DD).
+    ///    - releaseDateGte: Filter by any release date greater than or equal to (YYYY-MM-DD).
+    ///    - releaseDateLte: Filter by any release date less than or equal to (YYYY-MM-DD).
+    ///    - voteCountGte: Filter by minimum vote count.
+    ///    - voteCountLte: Filter by maximum vote count.
+    ///    - voteAverageGte: Filter by minimum vote average.
+    ///    - voteAverageLte: Filter by maximum vote average.
+    ///    - withRuntimeGte: Filter by minimum runtime in minutes.
+    ///    - withRuntimeLte: Filter by maximum runtime in minutes.
     ///
     /// - Throws: TMDb error ``TMDbError``.
     ///
@@ -63,7 +78,18 @@ public final class DiscoverService {
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
         withGenres: Int? = nil,
-        watchRegion: String? = nil
+        watchRegion: String? = nil,
+        primaryReleaseYear: Int? = nil,
+        primaryReleaseDateGte: String? = nil,
+        primaryReleaseDateLte: String? = nil,
+        releaseDateGte: String? = nil,
+        releaseDateLte: String? = nil,
+        voteCountGte: Int? = nil,
+        voteCountLte: Int? = nil,
+        voteAverageGte: Double? = nil,
+        voteAverageLte: Double? = nil,
+        withRuntimeGte: Int? = nil,
+        withRuntimeLte: Int? = nil
     ) async throws -> MoviePageableList {
         let movieList: MoviePageableList
         do {
@@ -75,7 +101,18 @@ public final class DiscoverService {
                     withNetworks: withNetworks,
                     withWatchProviders: withWatchProviders,
                     watchRegion: watchRegion,
-                    withGenres: withGenres
+                    withGenres: withGenres,
+                    primaryReleaseYear: primaryReleaseYear,
+                    primaryReleaseDateGte: primaryReleaseDateGte,
+                    primaryReleaseDateLte: primaryReleaseDateLte,
+                    releaseDateGte: releaseDateGte,
+                    releaseDateLte: releaseDateLte,
+                    voteCountGte: voteCountGte,
+                    voteCountLte: voteCountLte,
+                    voteAverageGte: voteAverageGte,
+                    voteAverageLte: voteAverageLte,
+                    withRuntimeGte: withRuntimeGte,
+                    withRuntimeLte: withRuntimeLte
                 )
             )
         } catch let error {
@@ -95,6 +132,19 @@ public final class DiscoverService {
     /// - Parameters:
     ///    - sortedBy: How results should be sorted.
     ///    - page: The page of results to return.
+    ///    - withNetworks: Filter by network.
+    ///    - withWatchProviders: Filter by watch provider.
+    ///    - withGenres: Filter by genre.
+    ///    - watchRegion: Filter by watch region.
+    ///    - firstAirDateYear: Filter by first air date year.
+    ///    - firstAirDateGte: Filter by first air date greater than or equal to (YYYY-MM-DD).
+    ///    - firstAirDateLte: Filter by first air date less than or equal to (YYYY-MM-DD).
+    ///    - voteCountGte: Filter by minimum vote count.
+    ///    - voteCountLte: Filter by maximum vote count.
+    ///    - voteAverageGte: Filter by minimum vote average.
+    ///    - voteAverageLte: Filter by maximum vote average.
+    ///    - withRuntimeGte: Filter by minimum runtime in minutes.
+    ///    - withRuntimeLte: Filter by maximum runtime in minutes.
     ///
     /// - Throws: TMDb error ``TMDbError``.
     ///
@@ -106,7 +156,16 @@ public final class DiscoverService {
         withNetworks: Int? = nil,
         withWatchProviders: Int? = nil,
         withGenres: Int? = nil,
-        watchRegion: String? = nil
+        watchRegion: String? = nil,
+        firstAirDateYear: Int? = nil,
+        firstAirDateGte: String? = nil,
+        firstAirDateLte: String? = nil,
+        voteCountGte: Int? = nil,
+        voteCountLte: Int? = nil,
+        voteAverageGte: Double? = nil,
+        voteAverageLte: Double? = nil,
+        withRuntimeGte: Int? = nil,
+        withRuntimeLte: Int? = nil
     ) async throws -> TVSeriesPageableList {
         let tvSeriesList: TVSeriesPageableList
         do {
@@ -117,7 +176,16 @@ public final class DiscoverService {
                     withNetworks: withNetworks,
                     withWatchProviders: withWatchProviders,
                     watchRegion: watchRegion,
-                    withGenres: withGenres
+                    withGenres: withGenres,
+                    firstAirDateYear: firstAirDateYear,
+                    firstAirDateGte: firstAirDateGte,
+                    firstAirDateLte: firstAirDateLte,
+                    voteCountGte: voteCountGte,
+                    voteCountLte: voteCountLte,
+                    voteAverageGte: voteAverageGte,
+                    voteAverageLte: voteAverageLte,
+                    withRuntimeGte: withRuntimeGte,
+                    withRuntimeLte: withRuntimeLte
                 )
             )
         } catch let error {
