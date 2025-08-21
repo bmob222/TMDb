@@ -51,6 +51,18 @@ extension URL {
         static let withGenres = "with_genres"
         static let watchRegion = "watch_region"
         static let primaryReleaseYear = "primary_release_year"
+        static let primaryReleaseDateGte = "primary_release_date.gte"
+        static let primaryReleaseDateLte = "primary_release_date.lte"
+        static let releaseDateGte = "release_date.gte"
+        static let releaseDateLte = "release_date.lte"
+        static let voteCountGte = "vote_count.gte"
+        static let voteCountLte = "vote_count.lte"
+        static let voteAverageGte = "vote_average.gte"
+        static let voteAverageLte = "vote_average.lte"
+        static let withRuntimeGte = "with_runtime.gte"
+        static let withRuntimeLte = "with_runtime.lte"
+        static let firstAirDateGte = "first_air_date.gte"
+        static let firstAirDateLte = "first_air_date.lte"
     }
 
     func appendingAPIKey(_ apiKey: String) -> Self {
@@ -160,6 +172,101 @@ extension URL {
 
         return appendingQueryItem(name: QueryItemName.withGenres, value: withGenres)
     }
+    
+    func appendingPrimaryReleaseDateGte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
 
+        return appendingQueryItem(name: QueryItemName.primaryReleaseDateGte, value: date)
+    }
+    
+    func appendingPrimaryReleaseDateLte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.primaryReleaseDateLte, value: date)
+    }
+    
+    func appendingReleaseDateGte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.releaseDateGte, value: date)
+    }
+    
+    func appendingReleaseDateLte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.releaseDateLte, value: date)
+    }
+    
+    func appendingVoteCountGte(_ count: Int?) -> Self {
+        guard let count else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.voteCountGte, value: count)
+    }
+    
+    func appendingVoteCountLte(_ count: Int?) -> Self {
+        guard let count else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.voteCountLte, value: count)
+    }
+    
+    func appendingVoteAverageGte(_ average: Double?) -> Self {
+        guard let average else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.voteAverageGte, value: average)
+    }
+    
+    func appendingVoteAverageLte(_ average: Double?) -> Self {
+        guard let average else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.voteAverageLte, value: average)
+    }
+    
+    func appendingWithRuntimeGte(_ runtime: Int?) -> Self {
+        guard let runtime else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.withRuntimeGte, value: runtime)
+    }
+    
+    func appendingWithRuntimeLte(_ runtime: Int?) -> Self {
+        guard let runtime else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.withRuntimeLte, value: runtime)
+    }
+
+    func appendingFirstAirDateGte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.firstAirDateGte, value: date)
+    }
+    
+    func appendingFirstAirDateLte(_ date: String?) -> Self {
+        guard let date else {
+            return self
+        }
+
+        return appendingQueryItem(name: QueryItemName.firstAirDateLte, value: date)
+    }
 
 }
